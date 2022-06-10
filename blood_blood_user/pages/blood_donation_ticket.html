@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="../css/main.css">
+</head>
+
+<body>
+
+    <div class="container">
+        <div class="mb mt">
+            <div class="row">
+                <div class="col l6 c12">
+                    <div class="card-panel">
+                        <h3 class="red-text">Raise Ticket</h3>
+                        <div class="input-field">
+                            <i class="material-icons prefix">text_fields</i>
+                            <input id="name" type="text" class="validate" readonly>
+                            <label for="name">Name</label>
+                        </div>
+                        <div class="input-field">
+                            <i class="material-icons prefix">tag</i>
+                            <input id="phone" type="text" class="validate" readonly>
+                            <label for="phone">Phone Number</label>
+                        </div>
+                        <div class="input-field">
+                            <i class="material-icons prefix red-text">water_drop</i>
+                            <input id="bloodGroup" type="text" class="validate" readonly>
+                            <label for="bloodGroup">Blood Group</label>
+                        </div>
+                        <div class="input-field">
+                            <i class="material-icons prefix">local_hospital </i>
+                            <select id="hospital" onchange="changeHospital()">
+                                <option value="" disabled selected>Select Hospital</option>
+                                <option value="other">other</option>
+                            </select>
+                            <input id="other_hospital" type="text" class="validate" style="display: none;"
+                                placeholder="Other Hospital">
+                        </div>
+                        <div class="input-field">
+                            <i class="material-icons prefix">event</i>
+                            <input id="ticketDate" type="text" class="datepicker" name="lbddate">
+                            <label for="ticketDate">Will Donate On.</label>
+                        </div>
+                        <button id="raiseTicket" class="btn green darken-3 waves-effect waves-light mt w100">
+                            Raise Ticket
+                        </button>
+                    </div>
+                </div>
+                <div class="col l6 c12">
+                    <div class="card-panel" id="status">
+                        <h3>Status</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/uuid/8.3.2/uuid.min.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.2.5/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.2.5/firebase-auth.js"></script>
+<!-- <script src="https://www.gstatic.com/firebasejs/8.2.5/firebase-admin.js"></script> -->
+<script src="https://www.gstatic.com/firebasejs/8.1.1/firebase-firestore.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+<script>
+    function changeHospital() {
+        let hospital = document.getElementById("hospital");
+        if (hospital.value == "other") {
+            document.getElementById("other_hospital").style.display = "block";
+        } else {
+            document.getElementById("other_hospital").style.display = "none";
+        }
+    }
+    M.AutoInit();
+</script>
+<script src="/js/blood_donation_ticket.js"></script>
+
+</html>

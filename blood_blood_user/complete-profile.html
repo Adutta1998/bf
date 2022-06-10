@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Complete Profile</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="./css/main.css">
+</head>
+
+<body class="valign-wrapper bg-blood white-text">
+    <div class="container">
+        <h3>Complete Your Profile</h3>
+        <div class="row">
+            <div class="col l4 s12">
+                <div class="file-field input-field">
+                    <div class="btn">
+                        <span>File</span>
+                        <input type="file" id="profile-image">
+                    </div>
+                    <div class="file-path-wrapper">
+                        <input class="file-path validate" type="text">
+                    </div>
+                </div>
+            </div>
+            <div class="col l8 s12">
+                <div class="progress" style="opacity: 0;">
+                    <div class="determinate" style="width: 50%"></div>
+                </div>
+                <img id="output"></img>
+            </div>
+        </div>
+
+
+        <div class="row">
+            <div class="col l4 s12">
+                <div class="file-field input-field">
+                    <div class="btn">
+                        <span>Blood Report</span>
+                        <input type="file" id="blood-report">
+                    </div>
+                    <div class="file-path-wrapper">
+                        <input class="file-path validate" type="text">
+                    </div>
+                </div>
+            </div>
+            <div class="col l8 s12">
+                <div class="progress report" style="opacity: 0;">
+                    <div class="determinate" style="width: 50%"></div>
+                </div>
+                <img id="output-report"></img>
+            </div>
+        </div>
+        <button class="btn-large" style="display: none;" id="continue">
+            Proceed
+        </button>
+    </div>
+</body>
+<script src="https://www.gstatic.com/firebasejs/8.2.5/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.1.1/firebase-firestore.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.1.1/firebase-storage.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.2.5/firebase-auth.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+<script src="./js/complete-profile.js" defer></script>
+
+</html>

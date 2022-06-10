@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="./css/main.css">
+</head>
+
+
+
+    <body style="min-height: 100vh;" class="valign-wrapper bg-blood white-text">
+           
+        <div class="container">
+            <!-- Green page content  -->
+            <h3>Register</h3>
+            <div class="card-panel red white-text">
+                <div class="col s8 card-panel black-text">
+                    <div class="header">
+                        <h1>Blood Bank Details</h1>
+                        
+                        
+                      </div>
+
+
+            <h3>Donation Information</h3>
+            
+          
+              <div class="input-field">
+              <i class="material-icons prefix red-text">brightness_1</i>
+              <select>
+                  <option value="" disabled selected>Donor Type?</option>
+                  <option value="Voluntary">Voluntary</option>
+                  <option value="Replacement">Replacement</option>
+                  <option value="Replacement External">Replacement External</option>
+                  <option value="Directed">Directed</option>
+                  <option value="Autologous">Autologous</option>
+                  
+              </select>
+          </div>
+          
+          <div class="input-field">
+            <i class="material-icons prefix red-text">water_drop</i>
+            <select>
+                <option value="" disabled selected>Donation Type?</option>
+                <option value="Leucaperesis">Leucaperesis</option>
+                  <option value="Plasmapheresis">Plasmapheresis</option>
+                  <option value="Plateletpheresis">Plateletpheresis</option>
+                  <option value="Whole Blood">Whole Blood</option>
+                  
+            </select>
+            <div class="input-field">
+                <i class="material-icons prefix red-text">water_drop</i>
+                <select>
+                    <option value="" disabled selected>Component Type?</option>
+                    <option value="Cryo Poor Plasma">Cryo Poor Plasma</option>
+                      <option value="Leukoreduced Rbc">Leukoreduced Rbc</option>
+                      <option value="Platelet Poor Plasma">Platelet Poor Plasma</option>
+                      <option value="Single Donor Platelet">Single Donor Platelet</option>
+                      <option value="Cryoprecipitate">Cryoprecipitate</option>
+                      <option value="Packed Red Blood Cells">Packed Red Blood Cells</option>
+                      <option value="Platelet Rich Plasma">Platelet Rich Plasma</option>
+                      <option value="Whole Blood">Whole Blood</option>
+                      <option value="Plasma"> Plasma</option>
+                      <option value="Sagm Packed Red Blood Cells">Sagm Packed Red Blood Cells</option>
+                      <option value="Platelet Concentrate">Platelet Concentrate</option>
+                      <option value="Leucoreduced RBC">Fresh Frozen Plasma</option>
+                </select>
+        </div>
+
+        <div class="input-field">
+            <i class="material-icons prefix red-text">water_drop</i>
+            <select>
+                <option value="" disabled selected>Bag Type?</option>
+                <option value="Single (350/450ml)">Single (350/450ml)</option>
+                  <option value="Double (350/450ml)">Double (350/450ml)</option>
+                  <option value="Triple (350/450ml)">Triple (350/450ml)</option>
+                  <option value="Quadruple (450 ml) with inline filter">Quadruple (450 ml) with inline filter</option>
+                  <option value="Quadruple (450 ml) without inline filter">Quadruple (450 ml) without inline filter</option>
+                  <option value="Penta Bag (450 ml)">Penta Bag (450 ml)</option>
+                  <option value="Transfer Bags">Transfer Bags</option>
+                  <option value="Apheresis Kits">Apheresis Kits</option>
+                  <option value="Triple (350 Ml) CPD/SAGM"> Triple (350 Ml) CPD/SAGM</option>
+                  <option value="Triple (450 Ml) CPD/SAGM">Triple (450 Ml) CPD/SAGM</option>
+                   </select>
+    </div>
+          <button class="btn waves-effect waves-light" type="submit" name="action">Submit
+            <i class="material-icons right">send</i>
+          </button>
+          
+            
+</body>
+<script src="https://www.gstatic.com/firebasejs/8.2.5/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.2.5/firebase-auth.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+<script>
+  M.AutoInit();
+</script>
+</html>

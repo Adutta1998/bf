@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blood Bank Register</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="./css/main.css">
+
+</head>
+
+<body style="min-height: 100vh;" class="valign-wrapper bg-blood white-text">
+    <div class="container">
+        <!-- Green page content  -->
+        <h3>Register</h3>
+        <div>
+            <div class="header red darken-2" style="border-top-left-radius: 5px;border-top-right-radius: 5px;">
+                <h1 style="margin-bottom: 0; box-sizing: border-box; padding: 16px;">Blood Bank Details</h1>
+            </div>
+            <div class="card-panel black-text" style="margin-top: 0;">
+                <div class="row" style="margin:0">
+                    <div class="input-field col s12">
+                        <i class="material-icons prefix">local_hospital</i>
+                        <input type="text" id="name">
+                        <label for="name">Blood Bank Name</label>
+                    </div>
+                    <div class="input-field col s12">
+                        <i class="material-icons prefix">account_balance</i>
+                        <input type="text" id="parent_name">
+                        <label for="parent_name">Parent Hospital Name</label>
+                    </div>
+
+
+                    <div class="input-field col s12 l4">
+                        <i class="material-icons prefix">home</i>
+                        <input type="text" id="city">
+                        <label for="city">City</label>
+                    </div>
+                    <div class="input-field col s12 l4">
+                        <i class="material-icons prefix">home</i>
+                        <input type="text" id="district">
+                        <label for="district">District</label>
+                    </div>
+                    <div class="input-field col s12 l4">
+                        <i class="material-icons prefix">location_city</i>
+                        <select name="" id="state">
+                            <option value="" selected disabled>Select State</option>
+                            <option value="Andhra Pradesh">Andhra Pradesh</option>
+                            <option value="Andaman and Nicobar Islands">Andaman and Nicobar Islands</option>
+                            <option value="Arunachal Pradesh">Arunachal Pradesh</option>
+                            <option value="Assam">Assam</option>
+                            <option value="Bihar">Bihar</option>
+                            <option value="Chandigarh">Chandigarh</option>
+                            <option value="Chhattisgarh">Chhattisgarh</option>
+                            <option value="Dadar and Nagar Haveli">Dadar and Nagar Haveli</option>
+                            <option value="Daman and Diu">Daman and Diu</option>
+                            <option value="Delhi">Delhi</option>
+                            <option value="Lakshadweep">Lakshadweep</option>
+                            <option value="Puducherry">Puducherry</option>
+                            <option value="Goa">Goa</option>
+                            <option value="Gujarat">Gujarat</option>
+                            <option value="Haryana">Haryana</option>
+                            <option value="Himachal Pradesh">Himachal Pradesh</option>
+                            <option value="Jammu and Kashmir">Jammu and Kashmir</option>
+                            <option value="Jharkhand">Jharkhand</option>
+                            <option value="Karnataka">Karnataka</option>
+                            <option value="Kerala">Kerala</option>
+                            <option value="Madhya Pradesh">Madhya Pradesh</option>
+                            <option value="Maharashtra">Maharashtra</option>
+                            <option value="Manipur">Manipur</option>
+                            <option value="Meghalaya">Meghalaya</option>
+                            <option value="Mizoram">Mizoram</option>
+                            <option value="Nagaland">Nagaland</option>
+                            <option value="Odisha">Odisha</option>
+                            <option value="Punjab">Punjab</option>
+                            <option value="Rajasthan">Rajasthan</option>
+                            <option value="Sikkim">Sikkim</option>
+                            <option value="Tamil Nadu">Tamil Nadu</option>
+                            <option value="Telangana">Telangana</option>
+                            <option value="Tripura">Tripura</option>
+                            <option value="Uttar Pradesh">Uttar Pradesh</option>
+                            <option value="Uttarakhand">Uttarakhand</option>
+                            <option value="West Bengal">West Bengal</option>
+                        </select>
+                    </div>
+                    <div class="input-field col s12">
+                        <i class="material-icons prefix">pin_drop</i>
+                        <input type="text" id="pincode">
+                        <label for="pincode">Pincode</label>
+                    </div>
+
+                    <div class="input-field col s12">
+                        <i class="material-icons prefix">mail_outline</i>
+                        <input type="email" id="email">
+                        <label for="email">Email</label>
+                    </div>
+
+                    <div class="input-field col s12">
+                        <i class="material-icons prefix">phone</i>
+                        <input type="text" id="phone">
+                        <label for="phone">Contact No.</label>
+                    </div>
+                    <div class="input-field col s12">
+                        <i class="material-icons prefix">confirmation_number</i>
+                        <input type="text" id="fax">
+                        <label for="fax">Fax No.</label>
+                    </div>
+                </div>
+
+
+
+                <div class="row">
+                    <div class="input-field col s12 l4">
+                        <i class="material-icons prefix">card_membership</i>
+                        <input type="text" id="licence">
+                        <label for="licence">Licence No.</label>
+                    </div>
+                    <div class="input-field col s12 l4">
+                        <i class="material-icons prefix">event</i>
+                        <input type="text" class="datepicker" placeholder="From Date" id="valid_from">
+                    </div>
+                    <div class="input-field col s12 l4">
+                        <i class="material-icons prefix">event</i>
+                        <input type="text" class="datepicker" placeholder="To Date" id="valid_till">
+                    </div>
+
+                    <div class="file-field input-field col s12">
+                        <div class="btn red">
+                            <span>Licence Document Upload</span>
+                            <input type="file" id="file">
+                        </div>
+                        <div class="file-path-wrapper">
+                            <input class="file-path validate" type="text">
+                        </div>
+                    </div>
+                    <div class="input-field col s12">
+                        <i class="material-icons prefix">lock</i>
+                        <input type="password" id="password">
+                        <label for="password">Password</label>
+                    </div>
+                    <button class="btn red white-text col s3" id="submit">
+                        Register Hospital
+                    </button>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</body>
+<script src="https://www.gstatic.com/firebasejs/8.2.5/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.1.1/firebase-firestore.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.1.1/firebase-storage.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.2.5/firebase-auth.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+<script src="./js/register.js" defer></script>
+
+</html>

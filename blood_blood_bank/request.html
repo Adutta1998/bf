@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Verify User</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="./css/main.css">
+</head>
+
+<body>
+    <div class="container">
+        <h2>Request Details</h2>
+        <div class="card-panel">
+            <!-- <h5 style="margin: 0;margin-bottom: 8px;">Name: <b>Avinaba Dutta</b></h5>
+            <h5 style="margin: 0;margin-bottom: 8px;">Address: <b>Avinaba Dutta</b></h5>
+            <h5 style="margin: 0;margin-bottom: 8px;">State: <b>Avinaba Dutta</b></h5>
+            <h5 style="margin: 0;margin-bottom: 8px;">Date Of Birth: <b>Avinaba Dutta</b></h5>
+            <h5 style="margin: 0;margin-bottom: 8px;">Email: <b>Avinaba Dutta</b></h5>
+            <h5 style="margin: 0;margin-bottom: 8px;">Phone: <b>Avinaba Dutta</b></h5>
+            <br>
+            <hr>
+            <br>
+            <h5 style="margin: 0;margin-bottom: 8px;">Blood Group: <b>Avinaba Dutta</b></h5>
+            <h5 style="margin: 0;margin-bottom: 8px;">Weight: <b>Avinaba Dutta</b></h5>
+            <h5 style="margin: 0;margin-bottom: 8px;">Last Blood Donation Date: <b>Avinaba Dutta</b></h5>
+            <img src="" alt=""> -->
+
+        </div>
+    </div>
+</body>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/uuid/8.3.2/uuid.min.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.2.5/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.2.5/firebase-auth.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.1.1/firebase-storage.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.1.1/firebase-firestore.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+<script defer>
+    const firebaseConfig = {
+        apiKey: "AIzaSyCZCS43__9UjvbloZMRktdT4sAkoORVLBU",
+        authDomain: "blooddonorkgec.firebaseapp.com",
+        projectId: "blooddonorkgec",
+        storageBucket: "blooddonorkgec.appspot.com",
+        messagingSenderId: "710040344206",
+        appId: "1:710040344206:web:9f369d218c1fd6b5199bdf"
+    };
+    let app = firebase.initializeApp(firebaseConfig);
+    let auth = firebase.auth();
+    let db = firebase.firestore();
+    let storageRef = firebase.storage().ref();
+    document.addEventListener('DOMContentLoaded', async function () {
+
+        let params = new URLSearchParams(window.location.search);
+        let rid = params.get("rid");
+        let request = await db.collection("requests").doc(rid).get();
+        let requestData = request.data();
+        console.log(requestData);
+        let q = `
+            <h5 style="margin: 0;margin-bottom: 8px;">Name: <b>${requestData.name}</b></h5>
+            <h5 style="margin: 0;margin-bottom: 8px;">Phone: <b>${requestData.phone}</b></h5>
+            <hr/>
+            <h5 style="margin: 0;margin-bottom: 8px;">Hospital: <b>${requestData.hospital}</b></h5>
+            <h5 style="margin: 0;margin-bottom: 8px;">Address: <b>${requestData.city},${requestData.district}</b></h5>
+            <h5 style="margin: 0;margin-bottom: 8px;">State: <b>${requestData.state}</b></h5>
+            <h5 style="margin: 0;margin-bottom: 8px;">Needed On: <b>${(requestData.requestNeedDate).toString().substr(0, 10)}</b></h5>
+            <br>
+            <hr>
+            <br>
+            <h5 style="margin: 0;margin-bottom: 8px;">Blood Group: <b>${requestData.bloodGroup}</b></h5>
+            <br>
+            <hr>
+            <br>
+            <h5 style="margin: 0;margin-bottom: 8px;">Requisition Slip</h5>
+            <div class="row">
+                <div class="col s6">
+                    <img width="250" src="${requestData.requisition}" alt="">
+                </div>   
+            </div>
+            <div>
+                <label>
+                    <input type="checkbox" id="varified" />
+                    <span>Varified? </span>
+                </label>
+                <div class="input-field">
+                    <input id="can_manage" type="text" class="validate">
+                    <label for="can_manage">Can Manage From Blood Bank<b>(Must be less than or equal to ${requestData.pins})</b></label>
+                </div>
+            </div>
+            <button class="btn waves-effect waves-light" onclick="approve()" name="action">Approve</button>
+            <button class="btn waves-effect waves-light red" name="action">Reject</button>
+        `
+        document.getElementsByClassName("card-panel")[0].innerHTML = q;
+        M.AutoInit();
+    });
+    function approve() {
+        let params = new URLSearchParams(window.location.search);
+        let id = params.get("rid");
+        let vf = false
+        if (document.getElementById("varified").checked) {
+            vf = true;
+
+        }
+        console.log(vf);
+        db.collection("requests").doc(id).update({
+            status: vf ? "verified" : "rejected",
+            managed: document.getElementById("can_manage").value,
+            by: firebase.firestore.FieldValue.arrayUnion("hospital")
+        }).then(() => {
+            window.location.href = "/dashboard.html";
+        });
+    }
+</script>
+
+</html>

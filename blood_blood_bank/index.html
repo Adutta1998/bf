@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+</head>
+
+<body>
+  <nav>
+    <div class="nav-wrapper">
+      <a href="#!" class="brand-logo">Logo</a>
+      <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+      <ul class="right hide-on-med-and-down">
+        <li><a href="BloodBank_registration.html">Blood Bank Registration</a></li>
+        <li><a href="Donation_information.html">Donation Information</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <div class="container" style="margin-top:25px">
+    <!-- Navbar goes here -->
+
+    <!-- Page Layout here -->
+    <div class="row">
+
+      <div class="col s12 l5">
+        <!-- Grey navigation panel -->
+        <div class="card-panel">
+
+          <h3>New Registered User</h3>
+          <div class="input-field">
+            <i class="material-icons prefix">text_fields</i>
+            <input id="name" type="text" class="validate">
+            <label for="name">Name?</label>
+          </div>
+
+          <div class="input-field">
+            <i class="material-icons prefix">place</i>
+            <input id="address" type="text" class="validate">
+            <label for="address">Address?</label>
+          </div>
+
+          <div class="buttons">
+
+            <div class="action_btn">
+
+              <button name="submit" class="action_btn submit" type="submit" value="View"
+                onclick="myFunction()">View</button>
+              <button name="submit" class="action_btn cancel" type="submit" value="Approve"
+                onclick="myFunction2()">Approve</button>
+              <button name="submit" class="action_btn cancel" type="submit" value="Select"
+                onclick="myFunction2()">Select</button>
+              <p id="saved"></p>
+
+            </div>
+
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  </div>
+
+  <ul class="sidenav" id="mobile-demo">
+    <li><a href="BloodBank_registration.html">Blood Bank Registration</a></li>
+    <li><a href="Donation_information.html">Donation Information</a></li>
+  </ul>
+</body>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/uuid/8.3.2/uuid.min.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.2.5/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.2.5/firebase-auth.js"></script>
+<!-- <script src="https://www.gstatic.com/firebasejs/8.2.5/firebase-admin.js"></script> -->
+<script src="https://www.gstatic.com/firebasejs/8.1.1/firebase-firestore.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+<script>
+  let data = localStorage.getItem("bloodbank");
+  if (data) {
+    window.location.href = "/dashboard.html";
+  }
+  M.AutoInit();
+</script>
+<script src="./main.js"></script>
+
+</html>
