@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blood Bank Register</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="./css/main.css">
+
+</head>
+
+<body style="min-height: 100vh;" class="valign-wrapper bg-blood white-text">
+    <div class="container">
+        <div class="card-panel" style="color:black ;">
+            <h4>Blood Availability</h4>
+            <table class="responsive-table">
+                <thead>
+                    <tr>
+                        <th>Blood Group</th>
+                        <th>Quantity Available</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>A+</td>
+                        <td class="row">
+                            <div class="col s2">
+                                <button class="btn" onclick="bloodAvailable('a+',1)">+</button>
+                            </div>
+                            <div class="col s8">
+                                <input type="text" name="" id="a+" value="0">
+
+                            </div>
+                            <div class="col s2">
+                                <button class="btn" onclick="bloodAvailable('a+',-1)">-</button>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>B+</td>
+                        <td class="row">
+                            <div class="col s2">
+                                <button class="btn" onclick="bloodAvailable('b+',1)">+</button>
+                            </div>
+                            <div class="col s8">
+                                <input type="text" name="" id="b+" value="0">
+
+                            </div>
+                            <div class="col s2">
+                                <button class="btn" onclick="bloodAvailable('b+',-1)">-</button>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>AB+</td>
+                        <td class="row">
+                            <div class="col s2">
+                                <button class="btn" onclick="bloodAvailable('ab+',1)">+</button>
+                            </div>
+                            <div class="col s8">
+                                <input type="text" name="" id="ab+" value="0">
+
+                            </div>
+                            <div class="col s2">
+                                <button class="btn" onclick="bloodAvailable('ab+',-1)">-</button>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>O+</td>
+                        <td class="row">
+                            <div class="col s2">
+                                <button class="btn" onclick="bloodAvailable('o+',1)">+</button>
+                            </div>
+                            <div class="col s8">
+                                <input type="text" name="" id="o+" value="0">
+
+                            </div>
+                            <div class="col s2">
+                                <button class="btn" onclick="bloodAvailable('o+',-1)">-</button>
+                            </div>
+                        </td>
+                    </tr>
+
+
+                    <tr>
+                        <td>A-</td>
+                        <td class="row">
+                            <div class="col s2">
+                                <button class="btn" onclick="bloodAvailable('a-',1)">+</button>
+                            </div>
+                            <div class="col s8">
+                                <input type="text" name="" id="a-" value="0">
+
+                            </div>
+                            <div class="col s2">
+                                <button class="btn" onclick="bloodAvailable('a-',-1)">-</button>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>B-</td>
+                        <td class="row">
+                            <div class="col s2">
+                                <button class="btn" onclick="bloodAvailable('b-',1)">+</button>
+                            </div>
+                            <div class="col s8">
+                                <input type="text" name="" id="b-" value="0">
+
+                            </div>
+                            <div class="col s2">
+                                <button class="btn" onclick="bloodAvailable('b-',-1)">-</button>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>AB-</td>
+                        <td class="row">
+                            <div class="col s2">
+                                <button class="btn" onclick="bloodAvailable('ab-',1)">+</button>
+                            </div>
+                            <div class="col s8">
+                                <input type="text" name="" id="ab-" value="0">
+
+                            </div>
+                            <div class="col s2">
+                                <button class="btn" onclick="bloodAvailable('ab-',1)">-</button>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>O-</td>
+                        <td class="row">
+                            <div class="col s2">
+                                <button class="btn" onclick="bloodAvailable('o-',1)">+</button>
+                            </div>
+                            <div class="col s8">
+                                <input type="text" name="" id="o-" value="0">
+
+                            </div>
+                            <div class="col s2">
+                                <button class="btn" onclick="bloodAvailable('o-',-1)">-</button>
+                            </div>
+                        </td>
+                    </tr>
+            </table>
+            <button class="btn" onclick="saveBlood()">Save</button>
+        </div>
+    </div>
+</body>
+<script src="https://www.gstatic.com/firebasejs/8.2.5/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.1.1/firebase-firestore.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.1.1/firebase-storage.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.2.5/firebase-auth.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+<script src="./js/bloodAvailable.js" defer></script>
+
+</html>

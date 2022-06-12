@@ -21,14 +21,16 @@ window.addEventListener("DOMContentLoaded", async () => {
             let data = userData.data();
 
             let requests = await db.collection("requests")
-                .where('uid', "==", uid)
+                .where('uid', "!=", uid)
                 .where('status', "==", "verified")
                 .where('bloodGroup', "==", data.bloodGroup)
                 .where('city', "==", data.city)
                 .get();
 
             let requstsData = requests.docs.map(doc => doc.data());
-            console.log(requstsData);
+            for (let request of requstsData) {
+                let p = `<li class="collection-item avatar">`
+            }
 
         } else {
             window.location.href = "login.html";

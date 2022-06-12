@@ -34,7 +34,7 @@ function changeProfileDetails(data) {
     document.querySelector('#phone').innerText = data.phone;
     document.querySelector('#address').innerText = `${data.address}, ${data.state}`;
     document.querySelector('#bloodGroup').innerText = data.bloodGroup;
-    document.querySelector("#profileImage").src = data.imageUrl;
+    document.querySelector("#profileImage").src = data.profileImage;
     document.querySelector('#dob').innerText = data.dateOfBirth;
     document.querySelector('#lbdDate').innerText = data.lbddate;
 }
