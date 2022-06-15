@@ -101,7 +101,7 @@ window.addEventListener('DOMContentLoaded', function () {
                         new M.Toast({
                             html: "Registered Successfully",
                         });
-                        window.location.href = "complete-profile.html";
+                        window.location.href = "complete-profile.html?uid=" + creds.user.uid;
                     }
                 }
             } catch (error) {

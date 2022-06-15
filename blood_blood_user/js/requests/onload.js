@@ -19,7 +19,7 @@ window.addEventListener("DOMContentLoaded", async () => {
             let uid = user.uid;
             let userData = await db.collection("users").doc(uid).get();
             let data = userData.data();
-
+            console.log(data);
             let requests = await db.collection("requests")
                 .where('uid', "!=", uid)
                 .where('status', "==", "verified")
