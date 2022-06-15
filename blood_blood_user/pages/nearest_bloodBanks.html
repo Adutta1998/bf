@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nearest Bloodbanks</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="../css/main.css">
+</head>
+
+<body>
+    <div class="container">
+        <h3>Nearest Bloodbanks</h3>
+        <div class="row">
+            <div class="input-field col s6">
+                <input id="city" type="text" class="validate">
+                <label for="city">City</label>
+            </div>
+            <div class="input-field col s6">
+                <input id="district" type="text" class="validate">
+                <label for="district">District</label>
+            </div>
+            <button class="btn red" id="load">Load</button>
+        </div>
+        <table>
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Address</th>
+                    <th>Contact</th>
+                    <th>Email</th>
+                    <th>Fax</th>
+                    <th>Parent Hospital Name</th>
+                    <th>Hospital Status</th>
+                </tr>
+            </thead>
+            <tbody id="bloodBanks"></tbody>
+        </table>
+    </div>
+</body>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/uuid/8.3.2/uuid.min.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.2.5/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.2.5/firebase-auth.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.1.1/firebase-storage.js"></script>
+
+<!-- <script src="https://www.gstatic.com/firebasejs/8.2.5/firebase-admin.js"></script> -->
+<script src="https://www.gstatic.com/firebasejs/8.1.1/firebase-firestore.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+<script>
+
+</script>
+<script src="../js/nearestBloodBanks.js"></script>
+
+</html>

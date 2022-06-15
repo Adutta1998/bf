@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>status</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="../css/main.css">
+</head>
+
+<body>
+    <div class="container">
+        <h3>Blood Status</h3>
+        <table class="striped">
+            <thead>
+                <tr>
+                    <th>Blood Group</th>
+                    <th>Quantity</th>
+                </tr>
+            </thead>
+            <tbody id="statuses">
+
+            </tbody>
+        </table>
+    </div>
+</body>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/uuid/8.3.2/uuid.min.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.2.5/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.2.5/firebase-auth.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.1.1/firebase-storage.js"></script>
+
+<!-- <script src="https://www.gstatic.com/firebasejs/8.2.5/firebase-admin.js"></script> -->
+<script src="https://www.gstatic.com/firebasejs/8.1.1/firebase-firestore.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+<script defer>
+    const firebaseConfig = {
+        apiKey: "AIzaSyCZCS43__9UjvbloZMRktdT4sAkoORVLBU",
+        authDomain: "blooddonorkgec.firebaseapp.com",
+        projectId: "blooddonorkgec",
+        storageBucket: "blooddonorkgec.appspot.com",
+        messagingSenderId: "710040344206",
+        appId: "1:710040344206:web:9f369d218c1fd6b5199bdf"
+    };
+    firebase.initializeApp(firebaseConfig);
+    const db = firebase.firestore();
+    const auth = firebase.auth();
+    let st = {};
+    const params = new Proxy(new URLSearchParams(window.location.search), {
+        get: (searchParams, prop) => searchParams.get(prop),
+    });
+    let hid = params.id;
+    let status = db.collection('available').onSnapshot(snapshot => {
+        let changes = snapshot.docChanges();
+        changes.forEach(change => {
+            if (change.type === "added") {
+                let id = change.doc.id;
+                if (id == hid) {
+                    let data = change.doc.data();
+                    console.log("added = ", data);
+                    st = data;
+                    drawStatus(st)
+                }
+            }
+            if (change.type === "removed") {
+                let id = change.doc.id;
+                if (id == hid) {
+                    let data = change.doc.data();
+                    console.log("removed = ", data);
+                    st = data;
+                    drawStatus(st)
+                }
+            }
+            if (change.type === "modified") {
+                let id = change.doc.id;
+                if (id == hid) {
+                    let data = change.doc.data();
+                    console.log("modified = ", data);
+                    st = data;
+                    drawStatus(st)
+                }
+            }
+        });
+    });
+
+    function drawStatus(st) {
+        let status = document.getElementById('statuses');
+        status.innerHTML = "";
+        let p = `
+            <tr>
+                <td><i class='material-icons red-text'>water_drop</i> A+</td>
+                <td>${st['a+']}</td>
+            </tr>
+            <tr>
+                <td><i class='material-icons red-text'>water_drop</i> B+</td>
+                <td>${st['b+']}</td>
+            </tr>
+            <tr>
+                <td><i class='material-icons red-text'>water_drop</i> AB+</td>
+                <td>${st['ab+']}</td>
+            </tr>
+            <tr>
+                <td><i class='material-icons red-text'>water_drop</i> O+</td>
+                <td>${st['o+']}</td>
+            </tr>
+            <tr>
+                <td><i class='material-icons red-text'>water_drop</i> A-</td>
+                <td>${st['a-']}</td>
+            </tr>
+            <tr>
+                <td><i class='material-icons red-text'>water_drop</i> B-</td>
+                <td>${st['b-']}</td>
+            </tr>
+            <tr>
+                <td><i class='material-icons red-text'>water_drop</i> AB-</td>
+                <td>${st['ab-']}</td>
+            </tr>
+            <tr>
+                <td><i class='material-icons red-text'>water_drop</i> O-</td>
+                <td>${st['o-']}</td>
+            </tr>
+            `
+        status.innerHTML += p;
+
+    }
+</script>
+
+</html>
