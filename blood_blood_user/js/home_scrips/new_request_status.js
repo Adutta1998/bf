@@ -6,7 +6,7 @@ window.addEventListener('DOMContentLoaded', async function () {
         if (user) {
             let uid = user.uid;
             let requests = db.collection('requests')
-                .where('status', 'in', ['new', 'accepted'])
+                .where('status', 'in', ['new', 'verified'])
                 .where('uid', '==', uid);
 
             requests.onSnapshot(snapshot => {
@@ -52,9 +52,15 @@ window.addEventListener('DOMContentLoaded', async function () {
         }
         rqsts.forEach(rqst => {
             let card = "";
+            let by = ``;
+            rqst.by.forEach(b => {
+                by += `<div>
+                    <a href="">${b}</a>
+                </div>`
+            });
             if (rqst.status == 'new') {
                 card = `<div class="card-panel red darken-3 white-text">
-                <span class="heading">Required ${rqst.pins} pin ${rqst.bloodGroup} blood on ${rqst.requestNeedDate} at ${rqst.location}</span>
+                <span class="heading">Required ${rqst.pins} pin ${rqst.bloodGroup} blood on ${rqst.requestNeedDate} at ${rqst.hospital},${rqst.city},${rqst.district}</span>
                 <br>
                 <hr>
                 <span class="status">
@@ -65,16 +71,14 @@ window.addEventListener('DOMContentLoaded', async function () {
             }
             if (rqst.status == 'accepted') {
                 card = `<div class="card-panel green white-text">
-                <h5>Required ${rqst.pins} pin ${rqst.bloodGroup} blood on ${rqst.requestNeedDate} at ${rqst.location}</h5>
+                <h5>Required ${rqst.pins} pin ${rqst.bloodGroup} blood on ${rqst.requestNeedDate} at ${rqst.hospital},${rqst.city},${rqst.district}</h5>
                 <br>
                 <hr>
                 <h6>
                     Status: <b>Accepted</b>
                 </h6>
                 <div>
-                    <button class="btn green darken-3 white-text">
-                        Contact Donor
-                    </button>
+                    ${by}
                 </div>
             </div>`;
             }

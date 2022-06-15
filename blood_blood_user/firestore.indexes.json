@@ -1,0 +1,45 @@
+{
+  "indexes": [
+    {
+      "collectionGroup": "donor",
+      "queryScope": "COLLECTION",
+      "fields": [
+        {
+          "fieldPath": "locationSearch",
+          "arrayConfig": "CONTAINS"
+        },
+        {
+          "fieldPath": "bloodGroup",
+          "order": "ASCENDING"
+        },
+        {
+          "fieldPath": "location",
+          "order": "ASCENDING"
+        }
+      ]
+    },
+    {
+      "collectionGroup": "requests",
+      "queryScope": "COLLECTION",
+      "fields": [
+        {
+          "fieldPath": "bloodGroup",
+          "order": "ASCENDING"
+        },
+        {
+          "fieldPath": "city",
+          "order": "ASCENDING"
+        },
+        {
+          "fieldPath": "status",
+          "order": "ASCENDING"
+        },
+        {
+          "fieldPath": "uid",
+          "order": "ASCENDING"
+        }
+      ]
+    }
+  ],
+  "fieldOverrides": []
+}
